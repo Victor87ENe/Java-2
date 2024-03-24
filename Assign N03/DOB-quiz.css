@@ -1,0 +1,21 @@
+
+body{
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+#quizdata{
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+#result{
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+button{
+    background-color: brown;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
