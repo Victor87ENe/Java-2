@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student list</title>
+    <link rel="stylesheet" href="student-list.css">
+</head>
+<body>
+    
+<!-- <button
+    onclick="
+     message();
+    
+    "
+>Deletb Student</button> -->
+
+
+
+
+     <!-- <button
+    onclick="getCredentials()"  
+    >start</button>
+    <div id="getCredentials"></div>
+    
+    <h1>Student Name</h1>
+    <ul id="studentList">
+
+        <li>Ghafy</li>
+        <li>Hilson</li>
+        <li>Isreal</li>
+        <li>Ebere</li>
+        <li>victor</li>
+        <li>Darlington</li>
+        <li>Adamu</li>
+        <li>Ekene</li>
+        <li>Yusufu</li>
+        <li>David</li>
+        <li>Emeka</li>
+
+    </ul>  
+
+    
+    <button onclick="deleteStudent()" style="display: none;" id="deleteButton">Delete student</button> 
+
+    <script src="student-list.js">
+
+    </script> -->
+
+
+
+    <button onclick="getCredentials()">Start</button>
+    <div id="credentials"></div>
+    
+    <h1>Student Name</h1>
+    <ul id="studentList">
+        <li>Ghafy</li>
+        <li>Hilson</li>
+        <li>Isreal</li>
+        <li>Ebere</li>
+        <li>Victor</li>
+        <li>Darlington</li>
+        <li>Adamu</li>
+        <li>Ekene</li>
+        <li>Yusufu</li>
+        <li>David</li>
+        <li>Emeka</li>
+    </ul>  
+
+    <button onclick="deleteStudent()" id="deleteButton">Delete Student</button> 
+
+    <script src="student-list.js">
+        function getCredentials() {
+            var credentialsDiv = document.getElementById("credentials");
+            credentialsDiv.innerHTML = "<p>Credentials will be shown here.</p>";
+        }
+
+        function deleteStudent() {
+            var studentList = document.getElementById("studentList");
+            var deleteButton = document.getElementById("deleteButton");
+            var lis = studentList.getElementsByTagName("li");
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].onclick = function() {
+                    this.parentNode.removeChild(this);
+                    deleteButton.style.display = "none";
+                };
+            }
+        }
+    </script>
+</body>
+</html>
