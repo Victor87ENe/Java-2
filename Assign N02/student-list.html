@@ -53,7 +53,7 @@
     <div id="credentials"></div>
     
     <h1>Student Name</h1>
-    <ul id="studentList">
+    <ol id="studentList">
         <li>Ghafy</li>
         <li>Hilson</li>
         <li>Isreal</li>
@@ -65,27 +65,13 @@
         <li>Yusufu</li>
         <li>David</li>
         <li>Emeka</li>
-    </ul>  
-
-    <button onclick="deleteStudent()" id="deleteButton">Delete Student</button> 
-
+    </ol>  
+    
+    <button onclick="deleteStudent()" style="display: none;" id="deleteButton">Delete Student</button> 
+    
     <script src="student-list.js">
-        function getCredentials() {
-            var credentialsDiv = document.getElementById("credentials");
-            credentialsDiv.innerHTML = "<p>Credentials will be shown here.</p>";
-        }
-
-        function deleteStudent() {
-            var studentList = document.getElementById("studentList");
-            var deleteButton = document.getElementById("deleteButton");
-            var lis = studentList.getElementsByTagName("li");
-            for (var i = 0; i < lis.length; i++) {
-                lis[i].onclick = function() {
-                    this.parentNode.removeChild(this);
-                    deleteButton.style.display = "none";
-                };
-            }
-        }
+        
     </script>
+    
 </body>
 </html>
