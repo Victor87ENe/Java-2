@@ -1,0 +1,21 @@
+body{
+    background-color: aqua;
+
+}
+
+
+button,.Btn{
+    padding: 10px 25px;
+    border-radius: 12px;
+    text-align: center;
+   
+}
+button.BB{
+    background-color: blue;
+    color: white;
+}
+
+.DelBtn{
+    background-color: red;
+    color: white;
+}

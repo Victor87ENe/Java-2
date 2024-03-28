@@ -66,26 +66,46 @@
 
 
 
-const Credentials = document.getElementById('Credentials');
-
 function getCredentials() {
     const username = prompt('Enter your username:');
     const passcode = prompt('Enter your passcode:');
+    const credentialsDiv = document.getElementById("credentials");
 
     if (username && passcode) {
-        Credentials.innerHTML = `Username: ${username}<br>Passcode: ${passcode}`;
-        document.getElementById('deleteButton').style.display = 'block'; // Use 'display' instead of 'block' for visibility
+        credentialsDiv.innerHTML = `Username: ${username}<br>Passcode: ${passcode}`;
+        document.getElementById('deleteButton').style.display = 'block';
     }
 }
 
+var expelledStudents = []; // Array to store expelled students
+        
 function deleteStudent() {
-    const studentList = document.getElementById('studentList'); // Assuming 'studentList' is the ID of the list
-    const students = studentList.getElementsByTagName('li'); // 'getElementsByTagName', not 'getElementByTagName'
-    const index = prompt('Enter the index of the student you want to delete:');
+    var studentList = document.getElementById("studentList");
+    var lis = studentList.getElementsByTagName("li");
 
-    if (index >= 0 && index < students.length) {
-        studentList.removeChild(students[index]);
+    var index = prompt("Enter the index of the student you want to delete (starting from 0):");
+
+    if (index !== null && !isNaN(index)) {
+        index = parseInt(index);
+
+        if (index >= 0 && index < lis.length) {
+            if (expelledStudents.includes(index)) {
+                alert("Student at this index is already expelled.");
+            } else {
+                var expelledStudent = lis[index].innerText; // Store expelled student
+                expelledStudents.push(index); // Add index of expelled student to array
+                
+                // Display expelled student
+                var expelledParagraph = document.createElement("p");
+                expelledParagraph.textContent = "Expelled Student: " + expelledStudent;
+                document.body.appendChild(expelledParagraph);
+                
+                studentList.removeChild(lis[index]);
+            }
+        } else {
+            alert("Invalid index");
+        }
     } else {
-        alert('Invalid index');
+        alert("Invalid input");
     }
 }
