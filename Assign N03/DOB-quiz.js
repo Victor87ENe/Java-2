@@ -1,73 +1,62 @@
 
 const quizData = [
     {
-        question: 'What year was Olisiego Obasanjo born?',
-        answer: '1953'
+        question: 'What year was Olusegun Obasanjo born?',
+        answer: '1937'
     },
     {
-        question: 'What year was Buhari born?',
-        answer: '1952'
+        question: 'What year was Muhammadu Buhari born?',
+        answer: '1942'
     },
     {
-        question: 'What year was Goodluck born?',
-        answer: '1973'
+        question: 'What year was Goodluck Jonathan born?',
+        answer: '1957'
     },
     {
-        question: 'What year was Yahradua born?',
-        answer: '1952'
+        question: 'What year was Umaru Musa Yaradua born?',
+        answer: '1951'
     }
 ];
 
 let currentQuestion = 0;
 let score = 0;
 
-const abortit = document.getElementById('abo');
+const abortit = document.getElementById('abort');
 
-//const usernameElement = document.getElementById('username');
 const questionElement = document.getElementById('question');
 const resultElement = document.getElementById('result');
-//const ghafyElement = document.getElementById('ghafy');
-const startButtonElement = document.getElementById('startbutton');
+const startButtonElement = document.getElementById('startButton');
 
-startButtonElement.addEventListener('click',startQuiz);
+startButtonElement.addEventListener('click', startQuiz);
 
-function startQuiz(){
-    startButton.style.display = 'none';
+function startQuiz() {
+    startButtonElement.style.display = 'none';
     loadQuestion();
-
 }
 
-function loadQuestion(){
-     
+function loadQuestion() {
     questionElement.innerText = quizData[currentQuestion].question;
-    let userAnswer = propmt(quizData[currentQuestion].question);
+    let userAnswer = prompt(quizData[currentQuestion].question);
     checkAnswer(userAnswer, quizData[currentQuestion].answer);
 }
 
-function checkAnswer(userAnswer, correctAnswer){
-    if(userAnswer !== null){
-        if(userAnswer.toLowerCase().toLowerCase() === correctAnswer.toLowerCase()){
+function checkAnswer(userAnswer, correctAnswer) {
+    if (userAnswer !== null) {
+        if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
             score++;
-            resultElement.innerText = correct! score: ${score};
-            }else{
-                resultElement.innerText = `incorrect! score: ${score}`;
-            }
-        
-    
-        currentQuestion++;
-        if(currentQuestion < quizData.length){
-            loadQuestion();
-        }else{
-            const percentage = (score/quizData.length)*100;
-            abortit.innerHTML = `Quiz completed!\nYour score:${score}/${quizData.length}(${percentage}%)`;
+            resultElement.innerText = `Correct! Score: ${score}`;
+        } else {
+            resultElement.innerText = `Incorrect! Score: ${score}`;
         }
-    
-    }else{
-        abortit.innerHTML=('Quiz aborted.');
+
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+            loadQuestion();
+        } else {
+            const percentage = (score / quizData.length) * 100;
+            abortit.innerHTML =  `Quiz completed!\nYour score: ${score}/${quizData.length} (${percentage.toFixed(2)}%)`;
+        }
+    } else {
+        abortit.innerHTML = ('Quiz aborted.');
     }
 }
-
-// function showResult(){
-//     resultElement.innerText = ('You scored'+score 
-//     + 'out off '+ quizData.length);
-// }
