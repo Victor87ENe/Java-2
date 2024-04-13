@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+<style>
+    button{
+    
+        padding: 2px 5px;
+        margin: 10px 30px;
+        border-radius: 10px;
+        border: 5px solid pink;
+
+        background-color: yellow;
+    }
+    .container{
+        width: 60%; 
+        margin: auto;
+        margin-top: 60px;
+        background-color: rgb(14, 85, 85);
+        height: 500px;
+        line-height: 80px;
+        color: white;
+    }
+    
+</style>
+</head>
+<body style="background-color: #18445d90; text-align: center;">
+<div class="container">
+<h3>Lucy Wining Game</h3>
+<p4>pick a button to play</p4>
+<br>
+
+<button onclick="
+    pickChidi();
+
+    
+
+    let result = '';
+
+    if (computerMove === 'R$20') {
+    result = 'tie.';
+    } else if (computerMove === 'P$30') {
+        result = 'you lose.';
+    } else if (computerMove === 'S$40') {
+        result = '\n you win \n $100 \n CONGRATULATIONS!.';
+    }
+    document.querySelector('#display')
+        .innerHTML = (`You picked R$20. Computer picked ${computerMove}. ${result}`);
+    
+        //alert(`You piced rock. Computer picked ${computerMove}. ${result}`);
+">R$20</button>
+
+
+
+<button onclick="
+   pickChidi();
+    
+
+    let result = '';
+
+    if (computerMove === 'R$20') {
+    result = '\nYou win \n $100 \n CONGRATULATIONS!.';
+    } else if (computerMove === 'P$30') {
+        result = 'tie.';
+    } else if (computerMove === 'S$40') {
+        result = 'you lose.';
+    }
+
+    document.querySelector('#display')
+        .innerHTML = (`You picked P$30. Computer picked ${computerMove}. ${result}`); 
+            
+    // alert(`You piced paper. Computer picked ${computerMove}. ${result}`);
+">P$30</button>
+
+<button onclick="
+       pickChidi();
+
+       
+
+        let result = '';
+
+        if (computerMove === 'R$20') {
+        result = 'You lose.';
+        } else if (computerMove === 'P$30') {
+            result = '\n you win \n $100 \n CONGRATULATIONS!.';
+        } else if (computerMove === 'S$40') {
+            result = 'tie.';
+        }
+        document.querySelector('#display')
+        .innerHTML = (`You picked S$40. Computer picked ${computerMove}. ${result}`); 
+            
+       // alert(`You piced Scissors. Computer picked ${computerMove}. ${result}`);
+">S$40</button>
+
+
+    <div id="display" class="displays"></div>
+
+</div>
+
+<script>
+    document.querySelector('#display')
+        .innerHTML = (`The winner will be display here`); 
+            
+    let computerMove = '';
+    function pickChidi() {
+       
+        const chidi = Math.random();
+    
+
+        if (chidi >=0 && chidi <1/3) {
+            computerMove = 'R$20';
+        } else if (chidi >1/3 && chidi <2/3) {
+            computerMove = 'P$30';
+        } else if (chidi >2/3 && chidi <1) {
+            computerMove = 'S$40';
+        }
+
+    }
+
+</script> 
+
+    
+</body>
+</html>
